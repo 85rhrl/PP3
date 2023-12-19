@@ -1,5 +1,14 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+def logo():
+    """ Battleship logo """
 
-print("Test Message")
+    print(r"""
+    ╔╗ ┌─┐┌┬┐┌┬┐┬  ┌─┐┌─┐┬ ┬┬┌─┐      # #  ( )
+    ╠╩╗├─┤ │  │ │  ├┤ └─┐├─┤│├─┘   ___#_#___|__
+    ╚═╝┴ ┴ ┴  ┴ ┴─┘└─┘└─┘┴ ┴┴┴  _ |____________|  _
+                        _=====| | |            | | |==== _
+                =====| |.---------------------------. | |====
+    <--------------------'   .  .  .  .  .  .  .  .   '--------------/
+      \                                                             /
+       \_______________________________________________WWS_________/""")
+
+logo()
