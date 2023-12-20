@@ -18,11 +18,10 @@ class Game:
     Sets the game
     """
 
-    def __init__(self, board_size, num_ships, player_name, type):
+    def __init__(self, board_size, num_ships, player_name):
         self.board_size = board_size
         self.num_ships = num_ships
         self.player_name = player_name
-        self.type = type
         self.board = [["-" for x in range(board_size)] for y in range(board_size)]
         self.guesses = []
         self.ships = []
@@ -42,14 +41,11 @@ class Game:
         else:
             return "Dang! You missed"
     
-    def add_ship(self, x, y, type="cpu"):
+    def add_ship(self, x, y):
         if len(self.ships) >= self.num_ships:
             print("Error: you can't add more ships!")
         else:
             self.ships.append((x, y))
-            # Mark ships with "S" on player's board
-            if self.type == "player":
-                self.board[x][y]: "S"
 
 def random_point(board_size):
     """
@@ -61,12 +57,22 @@ def valid_coordinates(x, y, board):
     pass
 
 def populate_board(board):
-    pass
+    ship_x = random_point(board.board_size)
+    ship_y = random_point(board.board_size)
+    print(ship_x, ship_y)
+    # Check if there is a ship in that location
+    while (ship_x, ship_y) in board.ships:
+        print("Ship already in that location, trying again")
+        ship_x = random_point(board.board_size)
+        ship_y = random_point(board.board_size)
+        print(ship_x, ship_y)
+    board.add_ship(ship_x, ship_y)
+    print("Ship added")
 
 def make_guess(board):
     pass
 
-def play_game(cpu_board, player_board):
+def play_game(player_board):
     pass
 
 def new_game():
@@ -76,8 +82,6 @@ def new_game():
     logo()
     board_size = 5
     num_ships = 5
-    scores["cpu"] = 0
-    scores["player"] = 0
     print("#" * 35)
     print(" Welcome to Battleship!")
     print(f" Board size: {board_size}. Number of ships: {num_ships}")
@@ -85,12 +89,13 @@ def new_game():
     print("#" * 35)
     player_name = input("Please enter your name/nickname: \n")
     print("-" * 35)
-
-    cpu_board = Game(board_size, num_ships, "CPU", type="cpu")
-    player_board = Game(board_size, num_ships, player_name, type="player")
+    
+    player_board = Game(board_size, num_ships, player_name)
 
     for ship in range(num_ships):
+        print(f"Ship {ship+1} of {num_ships}")
         populate_board(player_board)
-        populate_board(cpu_board)
     
-    play_game(cpu_board, player_board)
+    play_game(player_board)
+
+new_game()
