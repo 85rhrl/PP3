@@ -51,3 +51,9 @@ class Game:
             # Mark ships with "S" on player's board
             if self.type == "player":
                 self.board[x][y]: "S"
+
+def random_point(board_size):
+    """
+    Helper function to return a random integer between 0 and board_size
+    """
+    return randint(0, board_size -1)
