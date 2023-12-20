@@ -37,11 +37,11 @@ class Game:
 
         if (x, y) in self.ships:
             self.board[x][y] = "*"
-            #return "Great! You hit one ship!"
             print("Great! You hit one ship!")
+            return True
         else:
-            #return "Dang! You missed"
             print("Dang! You missed")
+            return False
     
     def add_ship(self, x, y):
         if len(self.ships) >= self.num_ships:
@@ -113,7 +113,25 @@ def make_guess(board):
 
 
 def play_game(player_board, num_turns, num_ships):
-    pass
+    num_hits = 0
+
+    while num_turns > 0 and num_hits < num_ships:
+        print(f"Turns left: {num_turns}")
+        print(f"Battleships still floating: {num_ships - num_hits}")
+        player_board.print_it()
+        x, y = make_guess(player_board)
+        print(player_board.guesses)
+        print(player_board.ships)
+        if player_board.guess(x, y):
+            num_hits += 1
+            print(f"number of hits: {num_hits}")
+        num_turns -= 1
+    
+    if num_hits == num_ships:
+        print("YOU WIN!!!")
+    else:
+        print("YOU LOSE!!!")
+        
 
 def new_game():
     """
@@ -137,10 +155,10 @@ def new_game():
         print(f"Ship {ship+1} of {num_ships}")
         populate_board(player_board)
     
-    x, y = make_guess(player_board)
-    print(player_board.guesses)
-    print(player_board.ships)
+    #x, y = make_guess(player_board)
+    #print(player_board.guesses)
+    #print(player_board.ships)
     play_game(player_board, num_turns, num_ships)
-    player_board.print_it()
+    #player_board.print_it()
 
 new_game()
