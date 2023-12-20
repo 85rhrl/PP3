@@ -60,3 +60,6 @@ def random_point(board_size):
 
 def valid_coordinates(x, y, board):
     pass
+
+def populate_board(board):
+    pass
