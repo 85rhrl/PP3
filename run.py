@@ -13,16 +13,15 @@ def logo():
         \                                                             /
          \_______________________________________________WWS_________/""")
 
-#logo()
-
 class Game:
     """
     Sets the game
     """
 
-    def __init__(self, type):
-        self.board_size = 5
-        self.num_ships = 5
+    def __init__(self, board_size, num_ships, player_name, type):
+        self.board_size = board_size
+        self.num_ships = num_ships
+        self.player_name = player_name
         self.type = type
         self.board = [["-" for x in range(board_size)] for y in range(board_size)]
         self.guesses = []
@@ -67,5 +66,31 @@ def populate_board(board):
 def make_guess(board):
     pass
 
-def play_game(computer_board, player_board):
+def play_game(cpu_board, player_board):
     pass
+
+def new_game():
+    """
+    Prints the logo and starts a new game.
+    """
+    logo()
+    board_size = 5
+    num_ships = 5
+    scores["cpu"] = 0
+    scores["player"] = 0
+    print("#" * 35)
+    print(" Welcome to Battleship!")
+    print(f" Board size: {board_size}. Number of ships: {num_ships}")
+    print(" Top left corner is row: 0, col: 0")
+    print("#" * 35)
+    player_name = input("Please enter your name/nickname: \n")
+    print("-" * 35)
+
+    cpu_board = Game(board_size, num_ships, "CPU", type="cpu")
+    player_board = Game(board_size, num_ships, player_name, type="player")
+
+    for ship in range(num_ships):
+        populate_board(player_board)
+        populate_board(cpu_board)
+    
+    play_game(cpu_board, player_board)
