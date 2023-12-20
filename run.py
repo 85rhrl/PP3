@@ -29,6 +29,6 @@ class Game:
         self.ships = []
     
     def print_it(self):
-        """ Prints only the contents of the list with white spaces in-between """
+        """ Prints only the contents of the board's list with white spaces in-between """
         for row in self.board:
             print(" ".join(row))
