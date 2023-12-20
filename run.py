@@ -37,9 +37,11 @@ class Game:
 
         if (x, y) in self.ships:
             self.board[x][y] = "*"
-            return "Great! You hit one ship!"
+            #return "Great! You hit one ship!"
+            print("Great! You hit one ship!")
         else:
-            return "Dang! You missed"
+            #return "Dang! You missed"
+            print("Dang! You missed")
     
     def add_ship(self, x, y):
         if len(self.ships) >= self.num_ships:
@@ -54,7 +56,31 @@ def random_point(board_size):
     return randint(0, board_size -1)
 
 def valid_coordinates(x, y, board):
-    pass
+    """
+    Validates the coordinates from player
+    """
+    try:
+        # Convert str to int
+        x = int(x)
+        y = int(y)
+        # Coordinates inside board?
+        board.board[x][y] in board.board
+    
+    except ValueError:
+        print("Please enter an integer number.")
+        return False
+    
+    except IndexError:
+        print(f"Please enter an integer between 0 and {board.board_size-1}.")
+        return False
+    
+    finally:
+        if (x, y) in board.guesses:
+            print("You have already guessed that location, try another.")
+            return False
+    
+    return True
+
 
 def populate_board(board):
     ship_x = random_point(board.board_size)
@@ -70,7 +96,21 @@ def populate_board(board):
     print("Ship added")
 
 def make_guess(board):
-    pass
+    """
+    Gets input from user and calls valid_coordinates
+    """
+
+    while True:
+        x = input("Please enter row: ")
+        y = input("Please enter column: ")
+        if valid_coordinates(x, y, board):
+            # Convert to int
+            x = int(x)
+            y = int(y)
+            board.guess(x, y)
+            return x, y
+            break
+
 
 def play_game(player_board):
     pass
@@ -91,11 +131,15 @@ def new_game():
     print("-" * 35)
     
     player_board = Game(board_size, num_ships, player_name)
-
+    player_board.print_it()
     for ship in range(num_ships):
         print(f"Ship {ship+1} of {num_ships}")
         populate_board(player_board)
     
+    x, y = make_guess(player_board)
+    print(player_board.guesses)
+    print(player_board.ships)
     play_game(player_board)
+    player_board.print_it()
 
 new_game()
