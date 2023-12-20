@@ -42,3 +42,12 @@ class Game:
             return "Great! You hit one ship!"
         else:
             return "Dang! You missed"
+    
+    def add_ship(self, x, y, type="cpu"):
+        if len(self.ships) >= self.num_ships:
+            print("Error: you can't add more ships!")
+        else:
+            self.ships.append((x, y))
+            # Mark ships with "S" on player's board
+            if self.type == "player":
+                self.board[x][y]: "S"
