@@ -66,3 +66,6 @@ def populate_board(board):
 
 def make_guess(board):
     pass
+
+def play_game(computer_board, player_board):
+    pass
