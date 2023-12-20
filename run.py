@@ -57,3 +57,6 @@ def random_point(board_size):
     Helper function to return a random integer between 0 and board_size
     """
     return randint(0, board_size -1)
+
+def valid_coordinates(x, y, board):
+    pass
