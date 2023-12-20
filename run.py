@@ -27,3 +27,8 @@ class Game:
         self.board = [["-" for x in range(board_size)] for y in range(board_size)]
         self.guesses = []
         self.ships = []
+    
+    def print_it(self):
+        """ Prints only the contents of the list with white spaces in-between """
+        for row in self.board:
+            print(" ".join(row))
