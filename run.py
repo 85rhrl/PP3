@@ -63,3 +63,6 @@ def valid_coordinates(x, y, board):
 
 def populate_board(board):
     pass
+
+def make_guess(board):
+    pass
