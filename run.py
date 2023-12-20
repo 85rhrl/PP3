@@ -1,3 +1,5 @@
+from random import randint
+
 def logo():
     """ Battleship logo """
 
@@ -18,13 +20,10 @@ class Game:
     Sets the game
     """
 
-    def __init__(self):
+    def __init__(self, type):
         self.board_size = 5
         self.num_ships = 5
-        self.player_board = [["-" for x in range(board_size)] for y in range(board_size)]
-        self.cpu_board = [["-" for x in range(board_size)] for y in range(board_size)]
+        self.type = type
+        self.board = [["-" for x in range(board_size)] for y in range(board_size)]
         self.guesses = []
         self.ships = []
-    
-    
-        
