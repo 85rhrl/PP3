@@ -112,7 +112,7 @@ def make_guess(board):
             break
 
 
-def play_game(player_board):
+def play_game(player_board, num_turns, num_ships):
     pass
 
 def new_game():
@@ -122,6 +122,7 @@ def new_game():
     logo()
     board_size = 5
     num_ships = 5
+    num_turns = 10
     print("#" * 35)
     print(" Welcome to Battleship!")
     print(f" Board size: {board_size}. Number of ships: {num_ships}")
@@ -139,7 +140,7 @@ def new_game():
     x, y = make_guess(player_board)
     print(player_board.guesses)
     print(player_board.ships)
-    play_game(player_board)
+    play_game(player_board, num_turns, num_ships)
     player_board.print_it()
 
 new_game()
