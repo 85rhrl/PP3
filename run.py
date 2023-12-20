@@ -32,3 +32,13 @@ class Game:
         """ Prints only the contents of the board's list with white spaces in-between """
         for row in self.board:
             print(" ".join(row))
+    
+    def guess(self, x, y):
+        self.guesses.append((x, y))
+        self.board[x][y] = "X"
+
+        if (x, y) in self.ships:
+            self.board[x][y] = "*"
+            return "Great! You hit one ship!"
+        else:
+            return "Dang! You missed"
