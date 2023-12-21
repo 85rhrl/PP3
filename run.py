@@ -59,10 +59,10 @@ class Game:
         self.guesses.append((x, y))
         
         if (x, y) in self.ships:
-            self.board[x][y] = "*"
+            self.board[x][y] = "X"
             return True
         else:
-            self.board[x][y] = "X"
+            self.board[x][y] = "O"
             return False
     
     def add_ship(self, x, y):
@@ -169,13 +169,13 @@ def new_game():
     board_size = 5
     num_ships = 5
     num_turns = 10
-    print("#" * 35)
-    print(" Welcome to Battleship!")
-    print(f" Board size: {board_size}. Number of ships: {num_ships}")
-    print(" Top left corner is row: 0, col: 0")
-    print("#" * 35)
+    print("~" * 80)
+    print("                             Welcome to Battleship!")
+    print(f"                        Board size: {board_size}. Number of ships: {num_ships}")
+    print('    Top left corner is row: 0, col: 0.  On the board "O" = miss and "X" = hit')
+    print("~" * 80)
     player_name = input("Please enter your name/nickname: \n")
-    print("-" * 35)
+    print("-" * 80)
     
     player_board = Game(board_size, num_ships, player_name)
     #player_board.print_it()
