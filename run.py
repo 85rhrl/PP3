@@ -11,7 +11,7 @@ def logo():
                     =====| |.---------------------------. | |====
       <--------------------'   .  .  .  .  .  .  .  .   '--------------/
         \                                                             /
-         \___________________________________________________________/""")
+~~~~~~~~~\___________________________________________________________/~~~~~~~~~~""")
 
 def victory():
     """ Victory text """
@@ -46,7 +46,7 @@ class Game:
         self.board_size = board_size
         self.num_ships = num_ships
         self.player_name = player_name
-        self.board = [["-" for x in range(board_size)] for y in range(board_size)]
+        self.board = [[" - " for x in range(board_size)] for y in range(board_size)]
         self.guesses = []
         self.ships = []
     
@@ -59,10 +59,10 @@ class Game:
         self.guesses.append((x, y))
         
         if (x, y) in self.ships:
-            self.board[x][y] = "X"
+            self.board[x][y] = " X "
             return True
         else:
-            self.board[x][y] = "O"
+            self.board[x][y] = " O "
             return False
     
     def add_ship(self, x, y):
@@ -170,8 +170,8 @@ def new_game():
     num_ships = 5
     num_turns = 10
     print("~" * 80)
-    print("                             Welcome to Battleship!")
-    print(f"                        Board size: {board_size}. Number of ships: {num_ships}")
+    print("                           Welcome to Battleship!")
+    print(f"                     Board size: {board_size}. Number of ships: {num_ships}")
     print('    Top left corner is row: 0, col: 0.  On the board "O" = miss and "X" = hit')
     print("~" * 80)
     player_name = input("Please enter your name/nickname: \n")
