@@ -86,12 +86,12 @@ def populate_board(board):
     print(ship_x, ship_y)
     # Check if there is a ship in that location
     while (ship_x, ship_y) in board.ships:
-        print("Ship already in that location, trying again")
+        #print("Ship already in that location, trying again")
         ship_x = random_point(board.board_size)
         ship_y = random_point(board.board_size)
-        print(ship_x, ship_y)
+        #print(ship_x, ship_y)
     board.add_ship(ship_x, ship_y)
-    print("Ship added")
+    #print("Ship added")
 
 def make_guess(board):
     """
@@ -99,7 +99,7 @@ def make_guess(board):
     """
 
     while True:
-        x = input("Please enter row: ")
+        x = input("\nPlease enter row: ")
         y = input("Please enter column: ")
         if valid_coordinates(x, y, board):
             # Convert to int
@@ -115,17 +115,19 @@ def play_game(player_board, num_turns, num_ships):
 
     while num_turns > 0 and num_hits < num_ships:
         print(f"Turns left: {num_turns}")
-        print(f"Battleships still floating: {num_ships - num_hits}")
+        print(f"Number of hits: {num_hits}")
+        print(f"Battleships still floating: {num_ships - num_hits}\n")
         player_board.print_it()
         x, y = make_guess(player_board)
-        print(player_board.guesses)
-        print(player_board.ships)
+        #print(player_board.guesses)
+        #print(player_board.ships)
+        logo()
         if player_board.guess(x, y):
             print(f"Great job {player_board.player_name}! You hit one ship!")
             num_hits += 1
         else:
             print(f"Dang {player_board.player_name}! You missed.")
-        print(f"number of hits: {num_hits}")
+        #print(f"Number of hits: {num_hits}")
         num_turns -= 1
     
     if num_hits == num_ships:
@@ -151,9 +153,9 @@ def new_game():
     print("-" * 35)
     
     player_board = Game(board_size, num_ships, player_name)
-    player_board.print_it()
+    #player_board.print_it()
     for ship in range(num_ships):
-        print(f"Ship {ship+1} of {num_ships}")
+        #print(f"Ship {ship+1} of {num_ships}")
         populate_board(player_board)
     
     #x, y = make_guess(player_board)
