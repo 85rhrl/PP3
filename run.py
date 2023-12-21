@@ -49,12 +49,12 @@ class Game:
         self.board = [[" - " for x in range(board_size)] for y in range(board_size)]
         self.guesses = []
         self.ships = []
-    
+
     def print_it(self):
         """ Prints only the contents of the board's list with white spaces in-between """
         for row in self.board:
             print(" ".join(row))
-    
+
     def guess(self, x, y):
         self.guesses.append((x, y))
         
@@ -64,7 +64,7 @@ class Game:
         else:
             self.board[x][y] = " O "
             return False
-    
+
     def add_ship(self, x, y):
         if len(self.ships) >= self.num_ships:
             print("Error: you can't add more ships!")
@@ -87,20 +87,20 @@ def valid_coordinates(x, y, board):
         y = int(y)
         # Coordinates inside board?
         board.board[x][y] in board.board
-    
+
     except ValueError:
         print("\nPlease enter an integer number.")
         return False
-    
+
     except IndexError:
         print(f"\nPlease enter an integer between 0 and {board.board_size-1}.")
         return False
-    
+
     finally:
         if (x, y) in board.guesses:
             print("\nYou have already guessed that location, try another.")
             return False
-    
+
     return True
 
 def populate_board(board):
@@ -147,12 +147,12 @@ def play_game(player_board, num_turns, num_ships):
         else:
             print(f"\n Dang {player_board.player_name}! You missed.")
         num_turns -= 1
-        
+
     if num_hits == num_ships:
         victory()
     else:
-        defeat()        
-
+        defeat()
+    
 def new_game():
     """
     Prints the logo and starts a new game.
@@ -168,7 +168,7 @@ def new_game():
     print("~" * 80)
     player_name = input("Please enter your name/nickname: \n")
     print("-" * 80)
-    
+
     player_board = Game(board_size, num_ships, player_name)
 
     for ship in range(num_ships):
