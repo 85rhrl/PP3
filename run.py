@@ -138,19 +138,17 @@ def play_game(player_board, num_turns, num_ships):
     num_hits = 0
 
     while num_turns > 0 and num_hits < num_ships:
-        print(f"Turns left: {num_turns}")
-        print(f"Number of hits: {num_hits}")
-        print(f"Battleships still floating: {num_ships - num_hits}\n")
+        print(f"\nTurns left: {num_turns}    Number of hits: {num_hits}    Battleships still floating: {num_ships - num_hits}\n")
         player_board.print_it()
         x, y = make_guess(player_board)
         #print(player_board.guesses)
         #print(player_board.ships)
         logo()
         if player_board.guess(x, y):
-            print(f"Great job {player_board.player_name}! You hit one ship!")
+            print(f"\nGreat job {player_board.player_name}! You hit one ship!")
             num_hits += 1
         else:
-            print(f"Dang {player_board.player_name}! You missed.")
+            print(f"\nDang {player_board.player_name}! You missed.")
         #print(f"Number of hits: {num_hits}")
         num_turns -= 1
     
