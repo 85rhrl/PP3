@@ -37,10 +37,10 @@ class Game:
 
         if (x, y) in self.ships:
             self.board[x][y] = "*"
-            print("Great! You hit one ship!")
+            print(f"Great {self.player_name}! You hit one ship!")
             return True
         else:
-            print("Dang! You missed")
+            print(f"Dang {self.player_name}! You missed")
             return False
     
     def add_ship(self, x, y):
