@@ -89,20 +89,19 @@ def valid_coordinates(x, y, board):
         board.board[x][y] in board.board
     
     except ValueError:
-        print("Please enter an integer number.")
+        print("\nPlease enter an integer number.")
         return False
     
     except IndexError:
-        print(f"Please enter an integer between 0 and {board.board_size-1}.")
+        print(f"\nPlease enter an integer between 0 and {board.board_size-1}.")
         return False
     
     finally:
         if (x, y) in board.guesses:
-            print("You have already guessed that location, try another.")
+            print("\nYou have already guessed that location, try another.")
             return False
     
     return True
-
 
 def populate_board(board):
     ship_x = random_point(board.board_size)
@@ -110,12 +109,9 @@ def populate_board(board):
     print(ship_x, ship_y)
     # Check if there is a ship in that location
     while (ship_x, ship_y) in board.ships:
-        #print("Ship already in that location, trying again")
         ship_x = random_point(board.board_size)
         ship_y = random_point(board.board_size)
-        #print(ship_x, ship_y)
     board.add_ship(ship_x, ship_y)
-    #print("Ship added")
 
 def make_guess(board):
     """
@@ -138,22 +134,20 @@ def play_game(player_board, num_turns, num_ships):
     num_hits = 0
 
     while num_turns > 0 and num_hits < num_ships:
-        print(f"\nTurns left: {num_turns}    Number of hits: {num_hits}    Battleships still floating: {num_ships - num_hits}\n")
+        print(f"\n Turns left: {num_turns}      Number of hits (X): {num_hits}       Battleships still floating: {num_ships - num_hits}\n")
         player_board.print_it()
         if num_turns == 1 and num_ships-num_hits == 1:
             print("\nLast turn, aim carefully!")
-        x, y = make_guess(player_board)
-        #print(player_board.guesses)
         #print(player_board.ships)
+        x, y = make_guess(player_board)
         logo()
         if player_board.guess(x, y):
-            print(f"\nGreat job {player_board.player_name}! You hit one ship!")
+            print(f"\n Great job {player_board.player_name}! You hit one ship!")
             num_hits += 1
             if num_ships-num_hits == 1:
-                print("One more ship to destroy!")
+                print(" One more ship to destroy!")
         else:
-            print(f"\nDang {player_board.player_name}! You missed.")
-        #print(f"Number of hits: {num_hits}")
+            print(f"\n Dang {player_board.player_name}! You missed.")
         num_turns -= 1
         
     if num_hits == num_ships:
@@ -178,15 +172,10 @@ def new_game():
     print("-" * 80)
     
     player_board = Game(board_size, num_ships, player_name)
-    #player_board.print_it()
+
     for ship in range(num_ships):
-        #print(f"Ship {ship+1} of {num_ships}")
         populate_board(player_board)
-    
-    #x, y = make_guess(player_board)
-    #print(player_board.guesses)
-    #print(player_board.ships)
+
     play_game(player_board, num_turns, num_ships)
-    #player_board.print_it()
 
 new_game()
