@@ -36,11 +36,9 @@ class Game:
         
         if (x, y) in self.ships:
             self.board[x][y] = "*"
-            print(f"Great {self.player_name}! You hit one ship!")
             return True
         else:
             self.board[x][y] = "X"
-            print(f"Dang {self.player_name}! You missed.")
             return False
     
     def add_ship(self, x, y):
@@ -123,8 +121,11 @@ def play_game(player_board, num_turns, num_ships):
         print(player_board.guesses)
         print(player_board.ships)
         if player_board.guess(x, y):
+            print(f"Great job {player_board.player_name}! You hit one ship!")
             num_hits += 1
-            print(f"number of hits: {num_hits}")
+        else:
+            print(f"Dang {player_board.player_name}! You missed.")
+        print(f"number of hits: {num_hits}")
         num_turns -= 1
     
     if num_hits == num_ships:
