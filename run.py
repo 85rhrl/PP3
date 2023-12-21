@@ -140,6 +140,8 @@ def play_game(player_board, num_turns, num_ships):
     while num_turns > 0 and num_hits < num_ships:
         print(f"\nTurns left: {num_turns}    Number of hits: {num_hits}    Battleships still floating: {num_ships - num_hits}\n")
         player_board.print_it()
+        if num_turns == 1 and num_ships-num_hits == 1:
+            print("\nLast turn, aim carefully!")
         x, y = make_guess(player_board)
         #print(player_board.guesses)
         #print(player_board.ships)
@@ -147,11 +149,13 @@ def play_game(player_board, num_turns, num_ships):
         if player_board.guess(x, y):
             print(f"\nGreat job {player_board.player_name}! You hit one ship!")
             num_hits += 1
+            if num_ships-num_hits == 1:
+                print("One more ship to destroy!")
         else:
             print(f"\nDang {player_board.player_name}! You missed.")
         #print(f"Number of hits: {num_hits}")
         num_turns -= 1
-    
+        
     if num_hits == num_ships:
         victory()
     else:
