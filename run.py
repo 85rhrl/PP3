@@ -13,6 +13,30 @@ def logo():
         \                                                             /
          \___________________________________________________________/""")
 
+def victory():
+    """ Victory text """
+
+    print(r"""
+    `7MMF'   `7MF'`7MMF' .g8'''bgd MMP""MM""YMM   .g8""8q. `7MM'''Mq.`YMM'   `MM'
+      `MA     ,V    MM .dP'     `M P'   MM   `7 .dP'    `YM. MM   `MM. VMA   ,V  
+       VM:   ,V     MM dM'       `      MM      dM'      `MM MM   ,M9   VMA ,V   
+        MM.  M'     MM MM               MM      MM        MM MMmmdM9     VMMP    
+        `MM A'      MM MM.              MM      MM.      ,MP MM  YM.      MM     
+         :MM;       MM `Mb.     ,'      MM      `Mb.    ,dP' MM   `Mb.    MM     
+          VF      .JMML. `"bmmmd'     .JMML.      `"bmmd"' .JMML. .JMM. .JMML.""")
+
+def defeat():
+    """ Defeat text """
+
+    print(r"""
+    `7MM'''Yb. `7MM'''YMM  `7MM'''YMM `7MM'''YMM        db   MMP""MM""YMM
+      MM    `Yb. MM    `7    MM    `7   MM    `7       ;MM:  P'   MM   `7 
+      MM     `Mb MM   d      MM   d     MM   d        ,V^MM.      MM      
+      MM      MM MMmmMM      MM""MM     MMmmMM       ,M  `MM      MM      
+      MM     ,MP MM   Y  ,   MM   Y     MM   Y  ,    AbmmmqMA     MM      
+      MM    ,dP' MM     ,M   MM         MM     ,M   A'     VML    MM      
+    .JMMmmmdP' .JMMmmmmMMM .JMML.     .JMMmmmmMMM .AMA.   .AMMA..JMML.""")
+
 class Game:
     """
     Sets the game
@@ -131,10 +155,9 @@ def play_game(player_board, num_turns, num_ships):
         num_turns -= 1
     
     if num_hits == num_ships:
-        print("YOU WIN!!!")
+        victory()
     else:
-        print("YOU LOSE!!!")
-        
+        defeat()        
 
 def new_game():
     """
