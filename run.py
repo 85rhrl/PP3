@@ -106,7 +106,6 @@ def valid_coordinates(x, y, board):
 def populate_board(board):
     ship_x = random_point(board.board_size)
     ship_y = random_point(board.board_size)
-    print(ship_x, ship_y)
     # Check if there is a ship in that location
     while (ship_x, ship_y) in board.ships:
         ship_x = random_point(board.board_size)
@@ -129,7 +128,6 @@ def make_guess(board):
             return x, y
             break
 
-
 def play_game(player_board, num_turns, num_ships):
     num_hits = 0
 
@@ -138,7 +136,7 @@ def play_game(player_board, num_turns, num_ships):
         player_board.print_it()
         if num_turns == 1 and num_ships-num_hits == 1:
             print("\nLast turn, aim carefully!")
-        #print(player_board.ships)
+        #print(f"\nShips coordinates (for testing): {player_board.ships}")
         x, y = make_guess(player_board)
         logo()
         if player_board.guess(x, y):
