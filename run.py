@@ -33,14 +33,14 @@ class Game:
     
     def guess(self, x, y):
         self.guesses.append((x, y))
-        self.board[x][y] = "X"
-
+        
         if (x, y) in self.ships:
             self.board[x][y] = "*"
             print(f"Great {self.player_name}! You hit one ship!")
             return True
         else:
-            print(f"Dang {self.player_name}! You missed")
+            self.board[x][y] = "X"
+            print(f"Dang {self.player_name}! You missed.")
             return False
     
     def add_ship(self, x, y):
