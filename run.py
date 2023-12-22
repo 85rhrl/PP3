@@ -65,9 +65,9 @@ def populate_board(board):
 
 def make_guess(board):
     """
-    Gets input from user and calls valid_coordinates
+    Gets input from user, validates them by calling the valid_coordinates 
+    function and if they are valid it calls the guess function.
     """
-
     while True:
         x = input("\nPlease enter row: ")
         y = input("Please enter column: ")
