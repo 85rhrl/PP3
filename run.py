@@ -143,25 +143,26 @@ def play_game(player_board, num_turns, num_ships):
     Starts a new game, displays the game stats, prints messages and 
     result and asks the player if they want to play again.
     """
-
-    num_hits = 0
-
-    while num_turns > 0 and num_hits < num_ships:
+    num_hits = 0 # Number of hits
+    while num_turns > 0 and num_hits < num_ships: # Checks if there are turns/ships left.
+        # Display game stats.
         print(f"\n Turns left: {num_turns}      Number of hits (X): {num_hits}       Battleships still floating: {num_ships - num_hits}\n")
-        player_board.print_it()
+        player_board.print_it() # Displays the board.
         if num_turns == 1 and num_ships-num_hits == 1:
+            # Display special message when last turn & ship.
             print("\nLast turn, aim carefully!")
         #print(f"\nShips coordinates (for testing): {player_board.ships}")
-        x, y = make_guess(player_board)
+        x, y = make_guess(player_board) # Gets the coordinates from player.
         logo()
         if player_board.guess(x, y):
             print(f"\n Great job {player_board.player_name}! You hit one ship!")
-            num_hits += 1
+            num_hits += 1 # Increase number of hits.
             if num_ships-num_hits == 1:
+                # Displays special message when last ship remains.
                 print(" One more ship to destroy!")
         else:
             print(f"\n Dang {player_board.player_name}! You missed.")
-        num_turns -= 1
+        num_turns -= 1 # Decrease number of turns.
 
     if num_hits == num_ships:
         victory()
