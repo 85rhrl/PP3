@@ -19,7 +19,7 @@ class Board:
 
     def print_it(self):
         """
-        Prints only the contents of the board's list with white spaces in-between
+        Prints only the contents of the board's list with white spaces in-between.
         """
         for row in self.board:
             print(" ".join(row))
@@ -46,7 +46,7 @@ class Board:
 
 def random_point(board_size):
     """
-    Helper function to return a random integer between 0 and board_size
+    Helper function to return a random integer between 0 and board_size.
     """
     return randint(0, board_size -1)
 
@@ -81,7 +81,7 @@ def make_guess(board):
 
 def valid_coordinates(x, y, board):
     """
-    Validates the coordinates from player
+    Validates the coordinates from player.
     """
     try:
         # Convert str to int
@@ -140,7 +140,8 @@ def new_game():
 
 def play_game(player_board, num_turns, num_ships):
     """
-    Starts a new game, displays game's messages and asks to play again
+    Starts a new game, displays the game stats, prints messages and 
+    result and asks the player if they want to play again.
     """
 
     num_hits = 0
@@ -150,7 +151,7 @@ def play_game(player_board, num_turns, num_ships):
         player_board.print_it()
         if num_turns == 1 and num_ships-num_hits == 1:
             print("\nLast turn, aim carefully!")
-        print(f"\nShips coordinates (for testing): {player_board.ships}")
+        #print(f"\nShips coordinates (for testing): {player_board.ships}")
         x, y = make_guess(player_board)
         logo()
         if player_board.guess(x, y):
