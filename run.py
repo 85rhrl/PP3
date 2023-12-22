@@ -52,8 +52,7 @@ class Board:
 
 def random_point(board_size):
     """
-    Helper function to return a random
-    integer between 0 and board_size.
+    Return a random integer between 0 and board_size - 1.
     """
     return randint(0, board_size - 1)
 
@@ -224,7 +223,9 @@ def clear_screen():
 
 
 def logo():
-    """ Battleship logo """
+    """
+    Battleship logo.
+    """
     print(r"""
     ╔╗ ┌─┐┌┬┐┌┬┐┬  ┌─┐┌─┐┬ ┬┬┌─┐        # #  ( )
     ╠╩╗├─┤ │  │ │  ├┤ └─┐├─┤│├─┘     ___#_#___|__
@@ -238,7 +239,9 @@ def logo():
 
 
 def victory():
-    """ Victory text """
+    """
+    Victory text.
+    """
     print(r"""
  `7MMF'   `7MF'`7MMF' .g8'''bgd MMP""MM""YMM   .g8""8q. `7MM'''Mq.`YMM'   `MM'
    `MA     ,V    MM .dP'     `M P'   MM   `7 .dP'    `YM. MM   `MM. VMA   ,V
@@ -250,7 +253,9 @@ def victory():
 
 
 def defeat():
-    """ Defeat text """
+    """
+    Defeat text.
+    """
     print(r"""
  `7MM'''Yb. `7MM'''YMM  `7MM'''YMM `7MM'''YMM        db   MMP""MM""YMM
    MM    `Yb. MM    `7    MM    `7   MM    `7       ;MM:  P'   MM   `7
