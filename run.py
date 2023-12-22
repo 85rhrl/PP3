@@ -2,12 +2,14 @@ from random import randint
 import os
 import time
 
-class Game:
+class Board:
     """
     Sets the game
     """
-
     def __init__(self, board_size, num_ships, player_name):
+        """
+        Initialize an instance of the Board class.
+        """
         self.board_size = board_size
         self.num_ships = num_ships
         self.player_name = player_name
@@ -16,7 +18,9 @@ class Game:
         self.ships = []
 
     def print_it(self):
-        """ Prints only the contents of the board's list with white spaces in-between """
+        """
+        Prints only the contents of the board's list with white spaces in-between
+        """
         for row in self.board:
             print(" ".join(row))
 
@@ -121,7 +125,7 @@ def new_game():
 
     print("-" * 80)
 
-    player_board = Game(board_size, num_ships, player_name)
+    player_board = Board(board_size, num_ships, player_name)
 
     for ship in range(num_ships):
         populate_board(player_board)
