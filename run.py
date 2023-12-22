@@ -42,6 +42,31 @@ def random_point(board_size):
     """
     return randint(0, board_size -1)
 
+def populate_board(board):
+    ship_x = random_point(board.board_size)
+    ship_y = random_point(board.board_size)
+    # Check if there is a ship in that location
+    while (ship_x, ship_y) in board.ships:
+        ship_x = random_point(board.board_size)
+        ship_y = random_point(board.board_size)
+    board.add_ship(ship_x, ship_y)
+
+def make_guess(board):
+    """
+    Gets input from user and calls valid_coordinates
+    """
+
+    while True:
+        x = input("\nPlease enter row: ")
+        y = input("Please enter column: ")
+        if valid_coordinates(x, y, board):
+            # Convert to int
+            x = int(x)
+            y = int(y)
+            board.guess(x, y)
+            return x, y
+            break
+
 def valid_coordinates(x, y, board):
     """
     Validates the coordinates from player
@@ -68,36 +93,34 @@ def valid_coordinates(x, y, board):
 
     return True
 
-def populate_board(board):
-    ship_x = random_point(board.board_size)
-    ship_y = random_point(board.board_size)
-    # Check if there is a ship in that location
-    while (ship_x, ship_y) in board.ships:
-        ship_x = random_point(board.board_size)
-        ship_y = random_point(board.board_size)
-    board.add_ship(ship_x, ship_y)
-
-def make_guess(board):
+def new_game():
     """
-    Gets input from user and calls valid_coordinates
+    Prints the logo and starts a new game.
     """
+    logo()
+    board_size = 5
+    num_ships = 5
+    num_turns = 1
+    print("~" * 80)
+    print("                           Welcome to Battleship!")
+    print(f"                     Board size: {board_size}. Number of ships: {num_ships}")
+    print('    Top left corner is row: 0, col: 0.  On the board "O" = miss and "X" = hit')
+    print("~" * 80)
+    player_name = input("Please enter your name/nickname: \n")
+    print("-" * 80)
 
-    while True:
-        x = input("\nPlease enter row: ")
-        y = input("Please enter column: ")
-        if valid_coordinates(x, y, board):
-            # Convert to int
-            x = int(x)
-            y = int(y)
-            board.guess(x, y)
-            return x, y
-            break
+    player_board = Game(board_size, num_ships, player_name)
+
+    for ship in range(num_ships):
+        populate_board(player_board)
+
+    play_game(player_board, num_turns, num_ships)
 
 def play_game(player_board, num_turns, num_ships):
     """
     Starts a new game, displays game's messages and asks to play again
     """
-    
+
     num_hits = 0
 
     while num_turns > 0 and num_hits < num_ships:
@@ -124,39 +147,18 @@ def play_game(player_board, num_turns, num_ships):
     
     play_again = input(f'\n{player_board.player_name} would you like to play again? ("Y" for yes, any other key for No)\n').upper()
     if play_again == "Y":
-        print("Excellent, starting new game in 3")
+        print(f"Great choice {player_board.player_name}!")
         time.sleep(1)
-        print("Excellent, starting new game in 2")
+        print("Starting new game in 3")
         time.sleep(1)
-        print("Excellent, starting new game in 1")
+        print("Starting new game in 2")
+        time.sleep(1)
+        print("Starting new game in 1")
         time.sleep(1)
         clear_screen()
         new_game()
     else:
         print(f"Thanks for playing {player_board.player_name}")    
-    
-def new_game():
-    """
-    Prints the logo and starts a new game.
-    """
-    logo()
-    board_size = 5
-    num_ships = 5
-    num_turns = 10
-    print("~" * 80)
-    print("                           Welcome to Battleship!")
-    print(f"                     Board size: {board_size}. Number of ships: {num_ships}")
-    print('    Top left corner is row: 0, col: 0.  On the board "O" = miss and "X" = hit')
-    print("~" * 80)
-    player_name = input("Please enter your name/nickname: \n")
-    print("-" * 80)
-
-    player_board = Game(board_size, num_ships, player_name)
-
-    for ship in range(num_ships):
-        populate_board(player_board)
-
-    play_game(player_board, num_turns, num_ships)
 
 def clear_screen():
     """
