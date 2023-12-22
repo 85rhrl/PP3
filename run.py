@@ -31,10 +31,10 @@ class Game:
             return False
 
     def add_ship(self, x, y):
-        if len(self.ships) >= self.num_ships:
-            print("Error: you can't add more ships!")
-        else:
-            self.ships.append((x, y))
+        """
+        Adds the ship to the "ships" list.
+        """
+        self.ships.append((x, y))
 
 def random_point(board_size):
     """
