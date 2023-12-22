@@ -107,7 +107,9 @@ def valid_coordinates(x, y, board):
 
 def new_game():
     """
-    Prints the logo and starts a new game.
+    Prints the logo, sets the size of the board, the number of ships and turns, prints the
+    welcome message, asks for the players name/nickname, creates the board, adds
+    ships to the boards and finally calls the play_game function.
     """
     logo()
     board_size = 5
