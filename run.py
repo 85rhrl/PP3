@@ -182,7 +182,15 @@ def play_game(player_board, num_turns, num_ships):
         clear_screen()
         new_game()
     else:
-        print(f"Thanks for playing {player_board.player_name}")    
+        print(f"Thanks for playing {player_board.player_name}")
+        time.sleep(1)
+        print("Leaving game in 3")
+        time.sleep(1)
+        print("Leaving game in 2")
+        time.sleep(1)
+        print("Leaving game in 1")
+        time.sleep(1)
+        clear_screen()
 
 def clear_screen():
     """
