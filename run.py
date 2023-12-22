@@ -100,13 +100,21 @@ def new_game():
     logo()
     board_size = 5
     num_ships = 5
-    num_turns = 1
+    num_turns = 10
     print("~" * 80)
     print("                           Welcome to Battleship!")
     print(f"                     Board size: {board_size}. Number of ships: {num_ships}")
     print('    Top left corner is row: 0, col: 0.  On the board "O" = miss and "X" = hit')
     print("~" * 80)
-    player_name = input("Please enter your name/nickname: \n")
+    while True:
+        player_name = input("Please enter your name/nickname (max. 20 characters): \n")
+        if len(player_name) > 20:
+            print("Name/Nickname longer than 20 characters")
+        elif len(player_name) == 0:
+            print("Name/Nickname cannot be empty")
+        else:
+            break
+
     print("-" * 80)
 
     player_board = Game(board_size, num_ships, player_name)
