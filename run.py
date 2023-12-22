@@ -32,10 +32,10 @@ class Board:
         self.guesses.append((x, y))
         
         if (x, y) in self.ships:
-            self.board[x][y] = " X "
+            self.board[x][y] = " X " # It's a Hit
             return True
         else:
-            self.board[x][y] = " O "
+            self.board[x][y] = " O " # It's a Miss
             return False
 
     def add_ship(self, x, y):
