@@ -4,7 +4,9 @@ import time
 
 class Board:
     """
-    Sets the game
+    Sets the board size, number of ships, player name.
+    Contains methods for printing and updating the board, 
+    checking if the guess was a hit and adding ships to the board.
     """
     def __init__(self, board_size, num_ships, player_name):
         """
@@ -53,7 +55,7 @@ def random_point(board_size):
 def populate_board(board):
     """
     Creates ship's coordinates randomly, verifies if it has unique
-    coordinates and calls the add_ship function.
+    coordinates and calls the add_ship method.
     """
     ship_x = random_point(board.board_size)
     ship_y = random_point(board.board_size)
@@ -66,7 +68,7 @@ def populate_board(board):
 def make_guess(board):
     """
     Gets input from user, validates them by calling the valid_coordinates 
-    function and if they are valid it calls the guess function.
+    function and if they are valid it calls the guess method.
     """
     while True:
         x = input("\nPlease enter row: ")
@@ -168,7 +170,7 @@ def play_game(player_board, num_turns, num_ships):
         victory()
     else:
         defeat()
-    
+
     play_again = input(f'\n{player_board.player_name} would you like to play again? ("Y" for yes, any other key for No)\n').upper()
     if play_again == "Y":
         print(f"Great choice {player_board.player_name}!")
