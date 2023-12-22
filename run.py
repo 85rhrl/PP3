@@ -31,8 +31,8 @@ class Board:
 
     def guess(self, x, y):
         """
-        Adds the player's guesses to the "guesses" list and updates the board
-        characters depending if its a Hit or a Miss.
+        Adds the player's guesses to the "guesses" list and updates
+        the board characters depending if its a Hit or a Miss.
         """
         self.guesses.append((x, y))
 
@@ -52,15 +52,16 @@ class Board:
 
 def random_point(board_size):
     """
-    Helper function to return a random integer between 0 and board_size.
+    Helper function to return a random
+    integer between 0 and board_size.
     """
     return randint(0, board_size - 1)
 
 
 def populate_board(board):
     """
-    Creates ship's coordinates randomly, verifies if it has unique
-    coordinates and calls the add_ship method.
+    Creates ship's coordinates randomly, verifies if it
+    has unique coordinates and calls the add_ship method.
     """
     ship_x = random_point(board.board_size)
     ship_y = random_point(board.board_size)
@@ -186,8 +187,9 @@ def play_game(player_board, num_turns, num_ships):
     else:
         defeat()
 
-    play_again = input(f'\n{player_board.player_name} would you like to play'
-                       ' again? ("Y" for yes, any other key for No)\n').upper()
+    play_again = input('\nWould you like to play again'
+                       f' {player_board.player_name}? ("Y" for yes,'
+                       ' any other key for No)\n').upper()
     if play_again == "Y":
         print(f"Great choice {player_board.player_name}!")
         time.sleep(1)
