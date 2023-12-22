@@ -43,6 +43,10 @@ def random_point(board_size):
     return randint(0, board_size -1)
 
 def populate_board(board):
+    """
+    Creates ship's coordinates randomly, verifies if it has unique
+    coordinates and calls the add_ship function.
+    """
     ship_x = random_point(board.board_size)
     ship_y = random_point(board.board_size)
     # Check if there is a ship in that location
@@ -136,7 +140,7 @@ def play_game(player_board, num_turns, num_ships):
         player_board.print_it()
         if num_turns == 1 and num_ships-num_hits == 1:
             print("\nLast turn, aim carefully!")
-        #print(f"\nShips coordinates (for testing): {player_board.ships}")
+        print(f"\nShips coordinates (for testing): {player_board.ships}")
         x, y = make_guess(player_board)
         logo()
         if player_board.guess(x, y):
