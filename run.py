@@ -25,6 +25,10 @@ class Board:
             print(" ".join(row))
 
     def guess(self, x, y):
+        """
+        Adds the player's guesses to the "guesses" list and updates the board
+        characters depending if its a Hit or a Miss.
+        """
         self.guesses.append((x, y))
         
         if (x, y) in self.ships:
