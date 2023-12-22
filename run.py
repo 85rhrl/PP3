@@ -1,41 +1,6 @@
 from random import randint
-
-def logo():
-    """ Battleship logo """
-
-    print(r"""
-    ╔╗ ┌─┐┌┬┐┌┬┐┬  ┌─┐┌─┐┬ ┬┬┌─┐        # #  ( )
-    ╠╩╗├─┤ │  │ │  ├┤ └─┐├─┤│├─┘     ___#_#___|__
-    ╚═╝┴ ┴ ┴  ┴ ┴─┘└─┘└─┘┴ ┴┴┴   _  |____________|  _
-                          _=====| | |            | | |==== _
-                    =====| |.---------------------------. | |====
-      <--------------------'   .  .  .  .  .  .  .  .   '--------------/
-        \                                                             /
-~~~~~~~~~\___________________________________________________________/~~~~~~~~~~""")
-
-def victory():
-    """ Victory text """
-
-    print(r"""
- `7MMF'   `7MF'`7MMF' .g8'''bgd MMP""MM""YMM   .g8""8q. `7MM'''Mq.`YMM'   `MM'
-   `MA     ,V    MM .dP'     `M P'   MM   `7 .dP'    `YM. MM   `MM. VMA   ,V  
-    VM:   ,V     MM dM'       `      MM      dM'      `MM MM   ,M9   VMA ,V   
-     MM.  M'     MM MM               MM      MM        MM MMmmdM9     VMMP    
-     `MM A'      MM MM.              MM      MM.      ,MP MM  YM.      MM     
-      :MM;       MM `Mb.     ,'      MM      `Mb.    ,dP' MM   `Mb.    MM     
-       VF      .JMML. `"bmmmd'     .JMML.      `"bmmd"' .JMML. .JMM. .JMML.""")
-
-def defeat():
-    """ Defeat text """
-
-    print(r"""
- `7MM'''Yb. `7MM'''YMM  `7MM'''YMM `7MM'''YMM        db   MMP""MM""YMM
-   MM    `Yb. MM    `7    MM    `7   MM    `7       ;MM:  P'   MM   `7 
-   MM     `Mb MM   d      MM   d     MM   d        ,V^MM.      MM      
-   MM      MM MMmmMM      MM""MM     MMmmMM       ,M  `MM      MM      
-   MM     ,MP MM   Y  ,   MM   Y     MM   Y  ,    AbmmmqMA     MM      
-   MM    ,dP' MM     ,M   MM         MM     ,M   A'     VML    MM      
- .JMMmmmdP' .JMMmmmmMMM .JMML.     .JMMmmmmMMM .AMA.   .AMMA..JMML.""")
+import os
+import time
 
 class Game:
     """
@@ -129,6 +94,10 @@ def make_guess(board):
             break
 
 def play_game(player_board, num_turns, num_ships):
+    """
+    Starts a new game, displays game's messages and asks to play again
+    """
+    
     num_hits = 0
 
     while num_turns > 0 and num_hits < num_ships:
@@ -153,6 +122,19 @@ def play_game(player_board, num_turns, num_ships):
     else:
         defeat()
     
+    play_again = input(f'\n{player_board.player_name} would you like to play again? ("Y" for yes, any other key for No)\n').upper()
+    if play_again == "Y":
+        print("Excellent, starting new game in 3")
+        time.sleep(1)
+        print("Excellent, starting new game in 2")
+        time.sleep(1)
+        print("Excellent, starting new game in 1")
+        time.sleep(1)
+        clear_screen()
+        new_game()
+    else:
+        print(f"Thanks for playing {player_board.player_name}")    
+    
 def new_game():
     """
     Prints the logo and starts a new game.
@@ -175,5 +157,51 @@ def new_game():
         populate_board(player_board)
 
     play_game(player_board, num_turns, num_ships)
+
+def clear_screen():
+    """
+    Clears the terminal screen
+    """
+    if os.name == "nt": # Windows
+        os.system("cls")
+    elif os.name == "posix": # Linux and macOS
+        os.system("clear")
+
+def logo():
+    """ Battleship logo """
+
+    print(r"""
+    ╔╗ ┌─┐┌┬┐┌┬┐┬  ┌─┐┌─┐┬ ┬┬┌─┐        # #  ( )
+    ╠╩╗├─┤ │  │ │  ├┤ └─┐├─┤│├─┘     ___#_#___|__
+    ╚═╝┴ ┴ ┴  ┴ ┴─┘└─┘└─┘┴ ┴┴┴   _  |____________|  _
+                          _=====| | |            | | |==== _
+                    =====| |.---------------------------. | |====
+      <--------------------'   .  .  .  .  .  .  .  .   '--------------/
+        \                                                             /
+~~~~~~~~~\___________________________________________________________/~~~~~~~~~~""")
+
+def victory():
+    """ Victory text """
+
+    print(r"""
+ `7MMF'   `7MF'`7MMF' .g8'''bgd MMP""MM""YMM   .g8""8q. `7MM'''Mq.`YMM'   `MM'
+   `MA     ,V    MM .dP'     `M P'   MM   `7 .dP'    `YM. MM   `MM. VMA   ,V  
+    VM:   ,V     MM dM'       `      MM      dM'      `MM MM   ,M9   VMA ,V   
+     MM.  M'     MM MM               MM      MM        MM MMmmdM9     VMMP    
+     `MM A'      MM MM.              MM      MM.      ,MP MM  YM.      MM     
+      :MM;       MM `Mb.     ,'      MM      `Mb.    ,dP' MM   `Mb.    MM     
+       VF      .JMML. `"bmmmd'     .JMML.      `"bmmd"' .JMML. .JMM. .JMML.""")
+
+def defeat():
+    """ Defeat text """
+
+    print(r"""
+ `7MM'''Yb. `7MM'''YMM  `7MM'''YMM `7MM'''YMM        db   MMP""MM""YMM
+   MM    `Yb. MM    `7    MM    `7   MM    `7       ;MM:  P'   MM   `7 
+   MM     `Mb MM   d      MM   d     MM   d        ,V^MM.      MM      
+   MM      MM MMmmMM      MM""MM     MMmmMM       ,M  `MM      MM      
+   MM     ,MP MM   Y  ,   MM   Y     MM   Y  ,    AbmmmqMA     MM      
+   MM    ,dP' MM     ,M   MM         MM     ,M   A'     VML    MM      
+ .JMMmmmdP' .JMMmmmmMMM .JMML.     .JMMmmmmMMM .AMA.   .AMMA..JMML.""")
 
 new_game()
