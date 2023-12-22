@@ -5,7 +5,7 @@ import time
 
 class Board:
     """
-    Sets the board size, number of ships, player name.
+    Set the board size, number of ships, player name.
     Contains methods for printing and updating the board,
     checking if the guess was a hit and adding ships to the board.
     """
@@ -23,7 +23,7 @@ class Board:
 
     def print_it(self):
         """
-        Prints only the contents of the board's
+        Print only the contents of the board's
         list with white spaces in-between.
         """
         for row in self.board:
@@ -31,7 +31,7 @@ class Board:
 
     def guess(self, x, y):
         """
-        Adds the player's guesses to the "guesses" list and updates
+        Add the player's guesses to the "guesses" list and update
         the board characters depending if its a Hit or a Miss.
         """
         self.guesses.append((x, y))
@@ -45,7 +45,7 @@ class Board:
 
     def add_ship(self, x, y):
         """
-        Adds the ship to the "ships" list.
+        Add the ship to the "ships" list.
         """
         self.ships.append((x, y))
 
@@ -60,8 +60,8 @@ def random_point(board_size):
 
 def populate_board(board):
     """
-    Creates ship's coordinates randomly, verifies if it
-    has unique coordinates and calls the add_ship method.
+    Create ship's coordinates randomly, verify if it
+    has unique coordinates and call the add_ship method.
     """
     ship_x = random_point(board.board_size)
     ship_y = random_point(board.board_size)
@@ -74,8 +74,8 @@ def populate_board(board):
 
 def make_guess(board):
     """
-    Gets input from user, validates them by calling the valid_coordinates
-    function and if they are valid it calls the guess method.
+    Get input from user, validate it by calling the valid_coordinates
+    function and if they are valid it, call the guess method.
     """
     while True:
         x = input("\nPlease enter row: ")
@@ -91,7 +91,7 @@ def make_guess(board):
 
 def valid_coordinates(x, y, board):
     """
-    Validates the coordinates from player.
+    Validate the coordinates from player.
     """
     try:
         # Convert str to int
@@ -118,10 +118,10 @@ def valid_coordinates(x, y, board):
 
 def new_game():
     """
-    Prints the logo, sets the size of the board, the number of ships
-    and turns, prints the welcome message, asks for the players
-    name/nickname, creates the board, adds ships to the boards and
-    finally calls the play_game function.
+    Print the logo, set the size of the board, the number of ships
+    and turns, print the welcome message, ask for the players
+    name/nickname, create the board, add ships to the boards and
+    finally call the play_game function.
     """
     logo()
     board_size = 5
@@ -156,27 +156,27 @@ def new_game():
 
 def play_game(player_board, num_turns, num_ships):
     """
-    Starts a new game, displays the game stats, prints messages and
-    result and asks the player if they want to play again.
+    Start a new game, display the game stats, print messages and
+    result and ask player if they want to play again.
     """
     num_hits = 0  # Number of hits
-    # Checks if there are turns/ships left.
+    # Check if there are turns/ships left.
     while num_turns > 0 and num_hits < num_ships:
         # Display game stats.
         print(f"\n Turns left: {num_turns}      Number of hits (X): {num_hits}"
               f"       Battleships still floating: {num_ships - num_hits}\n")
-        player_board.print_it()  # Displays the board.
+        player_board.print_it()  # Display the board.
         if num_turns == 1 and num_ships-num_hits == 1:
             # Display special message when last turn & ship.
             print("\nLast turn, aim carefully!")
         print(f"\nShips coordinates (for testing): {player_board.ships}")
-        x, y = make_guess(player_board)  # Gets the coordinates from player.
+        x, y = make_guess(player_board)  # Get coordinates from player.
         logo()
         if player_board.guess(x, y):
             print(f"\n Great job {player_board.player_name}! You hit a ship!")
             num_hits += 1  # Increase number of hits.
             if num_ships-num_hits == 1:
-                # Displays special message when last ship remains.
+                # Display special message when last ship remains.
                 print(" One more ship to destroy!")
         else:
             print(f"\n Dang {player_board.player_name}! You missed.")
@@ -215,7 +215,7 @@ def play_game(player_board, num_turns, num_ships):
 
 def clear_screen():
     """
-    Clears the terminal screen.
+    Clear the terminal screen.
     """
     if os.name == "nt":  # Windows
         os.system("cls")
