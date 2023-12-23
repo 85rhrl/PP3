@@ -41,3 +41,9 @@ The objective is to sunk all ships before the player runs out of turns (missiles
     - To better address the player and give personalized messages, the game asks the player to type in their name.
 
     ![Player's name](docs/images/03-playername.png)
+
+- __Game's statistics__
+    - On every turn, the game's statistics (turns left, number of hits and ships remaining) are displayed so the player knows how they're doing.
+
+    ![Player's name](docs/images/04-gamestats.png)
+
