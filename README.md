@@ -27,3 +27,12 @@ The objective is to sunk all ships before the player runs out of turns (missiles
     - At the top of the terminal screen a Battleship image made by characters is displayed with the name of the game next to it.
 
     ![Logo](docs/images/01-logo.png)
+
+- __Welcome message__
+    - Below the logo a welcome message is displayed.
+    - The game settings are displayed which include; Board size, number of ships and number of turns.
+    - An explanation of how to target the rows and columns.
+    - How are the Hit or Miss shots are displayed on the board.
+    - The game's objective.
+
+    ![Welcome message](docs/images/02-welcome.png)
