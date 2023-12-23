@@ -128,10 +128,10 @@ def new_game():
     num_turns = 10
     print("~" * 80)
     print("                           Welcome to Battleship!")
-    print(f"                     Board size: {board_size}  "
-          f"Number of ships: {num_ships}")
-    print('    Top left corner is row: 0, col: 0.  '
-          'On the board "O" = miss and "X" = hit')
+    print(f"                   Board size: {board_size}"
+          f"         Number of ships: {num_ships}")
+    print("                      Top left corner is row: 0, col: 0")
+    print('                    On the board "O" = miss and "X" = hit')
     print("~" * 80)
     while True:
         player_name = input("Please enter your name/nickname "
@@ -168,7 +168,7 @@ def play_game(player_board, num_turns, num_ships):
         if num_turns == 1 and num_ships-num_hits == 1:
             # Display special message when last turn & ship.
             print("\nLast turn, aim carefully!")
-        print(f"\nShips coordinates (for testing): {player_board.ships}")
+        #print(f"\nShips coordinates (for testing): {player_board.ships}")
         x, y = make_guess(player_board)  # Get coordinates from player.
         logo()
         if player_board.guess(x, y):
