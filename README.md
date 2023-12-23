@@ -87,4 +87,14 @@ The objective is to sunk all ships before the player runs out of turns (missiles
 ### Python libraries
 -   [random](https://docs.python.org/3/library/random.html) - Used for generating random numbers which are used to place ships on the board.
 -   [os](https://docs.python.org/3/library/os.html) - Enables the use of clear screen commands in different operating systems.
--   [time](https://docs.python.org/3/library/time.html) - Used for delaying print statements and clrearing screens commands.
+-   [time](https://docs.python.org/3/library/time.html) - Used for delaying print statements and clearing screens commands.
+
+## Testing
+The game was tested on a local terminal as well as the Code Institue Heroku terminal and no errors were found.
+
+### Validator testing
+The code was passed through the Code Institute's PEP8 Python Linter with no errors found.
+![Validator testing](docs/images/11-validatortest.png)
+
+### Manual testing
+![Manual testing](docs/images/10-manualtest.png)
