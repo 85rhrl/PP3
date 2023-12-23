@@ -54,3 +54,14 @@ The objective is to sunk all ships before the player runs out of turns (missiles
     - At the very top of the terminal screen, the player can see their last shot coordinates.
 
     ![Feedback](docs/images/05-hit-board-update.png)
+
+- __Input validation and error-checking__
+    - For an improved user experience, all inputs are validated:
+        - The player's name/nickname must be have a length 1 and 20 characters.
+        ![Name validation](docs/images/06-name-validation.png)
+        
+        - The row and column must be an integer that is inside the board.
+        - The game asks the player for new coordinates when guessing the same location twice.
+        ![Coordinates validation](docs/images/07-coord-validation.png)
+
+    
