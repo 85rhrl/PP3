@@ -70,3 +70,5 @@ The objective is to sunk all ships before the player runs out of turns (missiles
 
     - Battleship will let the player when they ran out of turns and ships are still floating:
     ![Defeat](docs/images/09-defeat.png)
+
+    - After the game's result, Battlefield asks the player if they would like to play again.
