@@ -36,3 +36,8 @@ The objective is to sunk all ships before the player runs out of turns (missiles
     - The game's objective.
 
     ![Welcome message](docs/images/02-welcome.png)
+
+- __Player's name__
+    - To better address the player and give personalized messages, the game asks the player to type in their name.
+
+    ![Player's name](docs/images/03-playername.png)
