@@ -128,10 +128,12 @@ def new_game():
     num_turns = 10
     print("~" * 80)
     print("                           Welcome to Battleship!")
-    print(f"                   Board size: {board_size}"
-          f"         Number of ships: {num_ships}")
+    print(f"        Board size: {board_size}"
+          f"       Number of ships: {num_ships}"
+          f"       Number of turns: {num_turns}")
     print("                      Top left corner is row: 0, col: 0")
     print('                    On the board "O" = miss and "X" = hit')
+    print('                 Destroy all ships before running out of turns!')
     print("~" * 80)
     while True:
         player_name = input("Please enter your name/nickname "
