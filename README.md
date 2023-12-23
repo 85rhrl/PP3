@@ -78,3 +78,13 @@ The objective is to sunk all ships before the player runs out of turns (missiles
 - __Ships with lengths larger than 1__
 - __Play against a computer__
 - __Change board size and number of ships__
+
+## Technologies used
+
+### Languages
+- __Python__ - Used to write the game code.
+
+### Python libraries
+-   [random](https://docs.python.org/3/library/random.html) - Used for generating random numbers which are used to place ships on the board.
+-   [os](https://docs.python.org/3/library/os.html) - Enables the use of clear screen commands in different operating systems.
+-   [time](https://docs.python.org/3/library/time.html) - Used for delaying print statements and clrearing screens commands.
