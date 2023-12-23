@@ -64,4 +64,9 @@ The objective is to sunk all ships before the player runs out of turns (missiles
         - The game asks the player for new coordinates when guessing the same location twice.
         ![Coordinates validation](docs/images/07-coord-validation.png)
 
-    
+- __Game Result__
+    - Battleship will congratulate the player if all ships were destroyed:
+    ![Victory](docs/images/08-victory.png)
+
+    - Battleship will let the player when they ran out of turns and ship are still floating:
+    ![Defeat](docs/images/09-defeat.png)
