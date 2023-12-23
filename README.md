@@ -47,3 +47,10 @@ The objective is to sunk all ships before the player runs out of turns (missiles
 
     ![Player's name](docs/images/04-gamestats.png)
 
+- __Feedback__
+    - After every turn, a message will be displayed to let the player know if their shot hit or miss a ship.
+    - The game statistics are updated and displayed.
+    - The board is updated to show the respective character ("X" for hit, "O" for miss).
+    - At the very top of the terminal screen, the player can see their last shot coordinates.
+
+    ![Feedback](docs/images/05-hit-board-update.png)
