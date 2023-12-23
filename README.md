@@ -72,3 +72,9 @@ The objective is to sunk all ships before the player runs out of turns (missiles
     ![Defeat](docs/images/09-defeat.png)
 
     - After the game's result, Battlefield asks the player if they would like to play again.
+
+### Features Left to Implement
+
+- __Ships with lengths larger than 1__
+- __Play against a computer__
+- __Change board size and number of ships__
