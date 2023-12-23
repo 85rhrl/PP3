@@ -18,3 +18,12 @@ The game then asks the user to type in the row and column (known as coordinates)
 If the shot was a "Hit" or "Miss", the respective message is displayed and the board is updated with an "X" for a sunken ship or a "O" for a missed shot for the given coordinates. 
 
 The objective is to sunk all ships before the player runs out of turns (missiles).
+
+## Features
+
+### Existing Features
+
+- __Logo__
+    - At the top of the terminal screen a Battleship image made by characters is displayed with the name of the game next to it.
+
+    ![Logo](docs/images/01-logo.png)
