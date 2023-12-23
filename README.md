@@ -45,7 +45,7 @@ The objective is to sunk all ships before the player runs out of turns (missiles
 - __Game's statistics__
     - On every turn, the game's statistics (turns left, number of hits and ships remaining) are displayed so the player knows how they're doing.
 
-    ![Player's name](docs/images/04-gamestats.png)
+    ![Game statistics](docs/images/04-gamestats.png)
 
 - __Feedback__
     - After every turn, a message will be displayed to let the player know if their shot hit or miss a ship.
