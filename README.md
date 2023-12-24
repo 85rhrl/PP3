@@ -90,7 +90,7 @@ The objective is to sink all ships before the player runs out of turns (missiles
 -   [time](https://docs.python.org/3/library/time.html) - Used for delaying print statements and clearing screens commands.
 
 ## Testing
-The game was tested on a local terminal as well as the Code Institue Heroku terminal and no errors were found.
+The game was tested on a local terminal as well as the Code Institute Heroku terminal and no errors were found.
 
 ### Easy mode (assessor mode)
 If the player (or the assessor) would like to beat the game without guessing the ship's location, simply insert the following code line between lines 172 and 173:
