@@ -139,9 +139,9 @@ def new_game():
         player_name = input("Please enter your name/nickname "
                             "(max. 20 characters): \n")
         if len(player_name) > 20:
-            print("Name/Nickname longer than 20 characters")
+            print("Name/Nickname longer than 20 characters.")
         elif len(player_name) == 0:
-            print("Name/Nickname cannot be empty")
+            print("Name/Nickname cannot be empty.")
         else:
             break
 
