@@ -105,7 +105,7 @@ The code was passed through the Code Institute's PEP8 Python Linter with no erro
 ![Manual testing](docs/images/10-manualtest.png)
 
 ### Bugs
-The game was crashing because I forgot to convert the given coordinates by the player to integer.
+The game was crashing because I forgot to convert the given coordinates by the player to integer. This was solved by converting the strings to integers.
 
 ### Unfixed bugs
 No Bugs were left unfixed.
