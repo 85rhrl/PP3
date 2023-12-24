@@ -127,3 +127,11 @@ The Python code is based on the Portfolio Project Scope (ULTIMATE Battleships) v
 The code for clearing the terminal screen is based from an article on the [codingninjas](https://www.codingninjas.com/studio/library/how-to-clear-a-screen-in-python) website.
 
 The ascii art for the Battleship image, Battleship title and Victory and Defeat messages was taken from the [ascii.co.uk](https://ascii.co.uk/art/battleship) website.
+
+### Acknowledgements
+
+I would like to express my gratitude to the following people:
+
+- Jubril Akolade for mentoring me, giving me guidance and encouragement.
+- Kay Welfare for their continuous help and encouragement.
+- My fellow classmates for their support and feedback.
