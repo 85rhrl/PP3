@@ -92,6 +92,11 @@ The objective is to sunk all ships before the player runs out of turns (missiles
 ## Testing
 The game was tested on a local terminal as well as the Code Institue Heroku terminal and no errors were found.
 
+### Easy mode (assessor mode)
+If the player (or the assessor) would like beat the game without guessing the ship's location, simply insert the following code line between lines 172 and 173:
+
+    print(f"\nShips coordinates (for testing): {player_board.ships}")
+
 ### Validator testing
 The code was passed through the Code Institute's PEP8 Python Linter with no errors found.
 ![Validator testing](docs/images/11-validatortest.png)
