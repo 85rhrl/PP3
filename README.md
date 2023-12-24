@@ -120,3 +120,10 @@ GitHub and Heroku were used to deploy Battleship:
     - Create a _Config Var_ called `PORT` and set it to `8000`.
 4. Connect the Heroku app to the repository from step 1.
 5. Click on _Deploy_
+
+## Credits
+The Python code is based on the Portfolio Project Scope (ULTIMATE Battleships) video from Code Institute.
+
+The code for clearing the terminal screen is based from an article on the [codingninjas](https://www.codingninjas.com/studio/library/how-to-clear-a-screen-in-python) website.
+
+The ascii art for the Battleship image, Battleship title and Victory and Defeat messages was taken from the [ascii.co.uk](https://ascii.co.uk/art/battleship) website.
